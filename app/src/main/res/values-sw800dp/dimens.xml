@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="boton_letra_size">75dp</dimen>
+    <dimen name="boton_altura">8dp</dimen>
+    <dimen name="letra_size">45sp</dimen>
+    <dimen name="letra_nueva_partida_size">20sp</dimen>
+    <dimen name="esquina_boton">11dp</dimen>
+
+    <dimen name="letra_contador_size">32dp</dimen>
+
+    <item name="escala_imagen" format="float" type="dimen">1.0</item>
+
+
+</resources>

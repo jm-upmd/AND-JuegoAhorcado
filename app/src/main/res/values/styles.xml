@@ -1,0 +1,41 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="botonLetra">
+        <item name="android:textColor">@color/amarillo</item>
+        <item name="android:textSize">@dimen/letra_size</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/boton_letra_size</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">fill_horizontal</item>
+        <item name="android:layout_margin">@dimen/boton_letra_margin</item>
+        <item name="android:background">@drawable/selector_boton_letra</item>
+        <item name="android:paddingBottom">@dimen/boton_altura</item>
+
+
+
+<!--
+        <item name="android:textSize">@dimen/boton_letra_textSize</item>
+-->
+    </style>
+
+    <style name="contador">
+        <item name="android:textColor">@color/negro</item>
+        <item name="android:textSize">@dimen/letra_contador_size</item>
+    </style>
+
+    <style name="etiqueta_contador" parent="contador">
+        <item name="android:textColor">@color/colorAccent</item>
+
+    </style>
+
+
+</resources>

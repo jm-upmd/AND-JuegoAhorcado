@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <TextView
+        android:id="@+id/textPalCandidata"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center_horizontal"
+        android:text="TextView"
+        android:textSize="@dimen/letra_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imagenHorca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:adjustViewBounds="true"
+        android:cropToPadding="true"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ahorcado0"
+        android:scaleX="@dimen/escala_imagen"
+        android:scaleY="@dimen/escala_imagen"
+        />
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/etiqueta_contador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Vidas"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintVertical_bias="0.26" />
+
+    <TextView
+        android:id="@+id/textView3"
+        style="@style/etiqueta_contador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Intentos"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/txtIntentos"
+        style="@style/contador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/txtVidas"
+        style="@style/contador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="6"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView6"
+        style="@style/etiqueta_contador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Palabra"
+        app:layout_constraintBottom_toTopOf="@+id/textPalCandidata"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Chronometer
+        android:id="@+id/cronometro"
+        style="@style/contador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+    <GridLayout
+        android:id="@+id/gridTeclado"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:columnCount="10"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline">
+
+        <TextView
+            android:id="@+id/botonLetraQ"
+            style="@style/botonLetra"
+            android:text="Q" />
+
+        <TextView
+            android:id="@+id/botonLetraW"
+            style="@style/botonLetra"
+            android:text="W" />
+
+        <TextView
+            android:id="@+id/botonLetraE"
+            style="@style/botonLetra"
+            android:text="E" />
+
+        <TextView
+            android:id="@+id/botonLetraR"
+            style="@style/botonLetra"
+            android:text="R" />
+
+        <TextView
+            android:id="@+id/botonLetraT"
+            style="@style/botonLetra"
+            android:text="T" />
+
+        <TextView
+            android:id="@+id/botonLetraY"
+            style="@style/botonLetra"
+            android:text="Y" />
+
+        <TextView
+            android:id="@+id/botonLetraU"
+            style="@style/botonLetra"
+            android:text="U" />
+
+        <TextView
+            android:id="@+id/botonLetraI"
+            style="@style/botonLetra"
+            android:text="I" />
+
+        <TextView
+            android:id="@+id/botonLetraO"
+            style="@style/botonLetra"
+            android:text="O" />
+
+        <TextView
+            android:id="@+id/botonLetraP"
+            style="@style/botonLetra"
+            android:text="P" />
+
+        <TextView
+            android:id="@+id/botonLetraA"
+            style="@style/botonLetra"
+            android:text="A" />
+
+        <TextView
+            android:id="@+id/botonLetraS"
+            style="@style/botonLetra"
+            android:text="S" />
+
+        <TextView
+            android:id="@+id/botonLetraD"
+            style="@style/botonLetra"
+            android:text="D" />
+
+        <TextView
+            android:id="@+id/botonLetraF"
+            style="@style/botonLetra"
+            android:text="F" />
+
+        <TextView
+            android:id="@+id/botonLetraG"
+            style="@style/botonLetra"
+            android:text="G" />
+
+        <TextView
+            android:id="@+id/botonLetraH"
+            style="@style/botonLetra"
+            android:text="H" />
+
+        <TextView
+            android:id="@+id/botonLetraJ"
+            style="@style/botonLetra"
+            android:text="J" />
+
+        <TextView
+            android:id="@+id/botonLetraK"
+            style="@style/botonLetra"
+            android:text="K" />
+
+        <TextView
+            android:id="@+id/botonLetraL"
+            style="@style/botonLetra"
+            android:text="L" />
+
+        <TextView
+            android:id="@+id/botonLetraÑ"
+            style="@style/botonLetra"
+            android:text="Ñ" />
+
+        <TextView
+            android:id="@+id/botonLetraZ"
+            style="@style/botonLetra"
+            android:text="Z" />
+
+        <TextView
+            android:id="@+id/botonLetraX"
+            style="@style/botonLetra"
+            android:text="X" />
+
+        <TextView
+            android:id="@+id/botonLetraC"
+            style="@style/botonLetra"
+            android:text="C" />
+
+        <TextView
+            android:id="@+id/botonLetraV"
+            style="@style/botonLetra"
+            android:text="V" />
+
+
+        <TextView
+            android:id="@+id/botonLetraB"
+            style="@style/botonLetra"
+            android:text="B" />
+
+        <TextView
+            android:id="@+id/botonLetraN"
+            style="@style/botonLetra"
+            android:text="N" />
+
+        <TextView
+            android:id="@+id/botonLetraM"
+            style="@style/botonLetra"
+            android:text="M" />
+
+        <TextView
+            android:id="@+id/botonNueva"
+            style="@style/botonLetra"
+            android:layout_columnSpan="3"
+            android:singleLine="true"
+            android:text="@string/new_game"
+            android:textColor="@color/amarillo"
+            android:textSize="@dimen/letra_nueva_partida_size" />
+
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/etiqueta_contador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Tiempo"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+</android.support.constraint.ConstraintLayout>
