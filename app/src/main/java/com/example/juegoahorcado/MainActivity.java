@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // Array con las imágenes de la horca.
     static final int[] HORCA = {R.drawable.ahorcado0, R.drawable.ahorcado1, R.drawable.ahorcado2,
-    R.drawable.ahorcado3, R.drawable.ahorcado4, R.drawable.ahorcado5, R.drawable.ahorcado6};
+            R.drawable.ahorcado3, R.drawable.ahorcado4, R.drawable.ahorcado5, R.drawable.ahorcado6};
 
 
     @Override
@@ -77,17 +77,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         SpannableStringBuilder sb = new SpannableStringBuilder(mPartida.getPalabraCandidataEspaciada());
 
-        int i,j;
-        for( i=0, j=0; i< n; i++, j+=2){
-            if(sb.charAt(j) == Partida.NO_LETRA){
-                sb.replace(j,j+1,palabraOculta.substring(i,i+1));
-                sb.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.rojo)),j,j+1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        int i, j;
+        for (i = 0, j = 0; i < n; i++, j += 2) {
+            if (sb.charAt(j) == Partida.NO_LETRA) {
+                sb.replace(j, j + 1, palabraOculta.substring(i, i + 1));
+                sb.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.rojo)), j, j + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
             }
         }
 
         mTxtPalabraCandidata.setText(sb);
-  }
+    }
 
     void nuevaPartida() {
 
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         pintaHorca(0);
 
         // Pone cronómetro a cero y lo pone a contar
-        mCronometro.setBase(SystemClock.elapsedRealtime() );
+        mCronometro.setBase(SystemClock.elapsedRealtime());
         mCronometro.start();
 
 
@@ -128,59 +128,56 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        {
-            if (v instanceof TextView) {
-                if (getResources().getResourceEntryName(v.getId()).contains("botonLetra")) {
-                    // *** Si se pulsa un botón de letra
 
-                    // Deshabilita la tecla de la letra pulsada
-                    TextView letra = (TextView) v;
-                    letra.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
-                    letra.setEnabled(false);
+        if (v instanceof TextView) {
+            if (getResources().getResourceEntryName(v.getId()).contains("botonLetra")) {
+                // *** Si se pulsa un botón de letra
 
-                    // Realiza jugada con la letra pulsada
-                    // Si jugada falla devuelve null y si no la palabraCandidata actualizada
-                    // con nueva letra añadida.
-                    String palabraCandidata = mPartida.hazJugada(letra.getText().charAt(0));
+                // Deshabilita la tecla de la letra pulsada
+                TextView letra = (TextView) v;
+                letra.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                letra.setEnabled(false);
 
-                    // Actualiza contador de intentos
-                    mTxtIntentos.setText(String.valueOf(mPartida.getIntentos()));
+                // Realiza jugada con la letra pulsada
+                // Si jugada falla devuelve null y si no la palabraCandidata actualizada
+                // con nueva letra añadida.
+                String palabraCandidata = mPartida.hazJugada(letra.getText().charAt(0));
 
-                    if (palabraCandidata == null) {
-                        // Si la letra no está en la palabra oculta
-                        int vidas = mPartida.getVidas();
-                        mTxtVidas.setText(String.valueOf(vidas)); // Decrementa cont. vidas
-                        pintaHorca(Partida.TOTAL_VIDAS - vidas); // pinta siguente horca
+                // Actualiza contador de intentos
+                mTxtIntentos.setText(String.valueOf(mPartida.getIntentos()));
 
-                        // Si ha consumido la última vida, informa de derrota y deshabilita letras
-                        if(mPartida.terminada() == Partida.PERDIDA){
-                            mCronometro.stop();
-                            tecladoHabilitado(false);
-                            Toast.makeText(MainActivity.this,"¡Ooooh, HAS PERDIDO!",Toast.LENGTH_SHORT).show();
-                            pintaPalabraBicolor();
-                        }
+                if (palabraCandidata == null) {
+                    // Si la letra no está en la palabra oculta
+                    int vidas = mPartida.getVidas();
+                    mTxtVidas.setText(String.valueOf(vidas)); // Decrementa cont. vidas
+                    pintaHorca(Partida.TOTAL_VIDAS - vidas); // pinta siguente horca
 
-                    } else {
-                        // Si la letra si está en la palabra oculta la repinta con nueva letra
-                        mTxtPalabraCandidata.setText(palabraCandidata);
-
-                        // Si ha completado todas las letras de la palabra oculta, felicita y
-                        // deshabilita letras
-                        if (mPartida.terminada() == Partida.GANADA) {
-                            mCronometro.stop();
-                            tecladoHabilitado(false); // Deshabilita teclas de letras
-                            Toast.makeText(MainActivity.this,"¡Enhorabuena, LA HAS RESUELTO!",Toast.LENGTH_SHORT).show();
-                        }
+                    // Si ha consumido la última vida, informa de derrota y deshabilita letras
+                    if (mPartida.terminada() == Partida.PERDIDA) {
+                        mCronometro.stop();
+                        tecladoHabilitado(false);
+                        Toast.makeText(MainActivity.this, "¡Ooooh, HAS PERDIDO!", Toast.LENGTH_SHORT).show();
+                        pintaPalabraBicolor();
                     }
 
-                } else if (v.getId() == R.id.botonNueva) {
-                    // *** Si se pulsa boton Nueva Partida
-                    nuevaPartida();
+                } else {
+                    // Si la letra si está en la palabra oculta la repinta con nueva letra
+                    mTxtPalabraCandidata.setText(palabraCandidata);
 
+                    // Si ha completado todas las letras de la palabra oculta, felicita y
+                    // deshabilita letras
+                    if (mPartida.terminada() == Partida.GANADA) {
+                        mCronometro.stop();
+                        tecladoHabilitado(false); // Deshabilita teclas de letras
+                        Toast.makeText(MainActivity.this, "¡Enhorabuena, LA HAS RESUELTO!", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
-            }
+            } else if (v.getId() == R.id.botonNueva) {
+                // *** Si se pulsa boton Nueva Partida
+                nuevaPartida();
 
+            }
         }
     }
 }
