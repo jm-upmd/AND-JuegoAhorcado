@@ -62,9 +62,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 tecla.setEnabled(habilitado);
                 int color = habilitado ? R.color.blanco : R.color.colorPrimaryDark;
                 ((TextView) tecla).setTextColor(getResources().getColor(color));
-
-                //tecla.setPadding(0,0,0,habilitado? (int) getResources().getDimension(R.dimen.boton_altura) : 0);
-
             }
         }
 
